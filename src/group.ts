@@ -27,5 +27,14 @@ export const group = <T extends Record>(
   collection: T[],
   key: keyof T,
 ): { [key: string]: T[] } => {
-  return {};
+  const objGroup = {};
+
+  for (let i = 0; collection.length > i; i++) {
+    const value = collection[i][key].toString();
+    if (!objGroup[value]) {
+      objGroup[value] = [];
+    }
+    objGroup[value].push(collection[i]);
+  }
+  return objGroup;
 };
