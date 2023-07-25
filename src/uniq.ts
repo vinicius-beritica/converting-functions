@@ -8,5 +8,21 @@
  * @returns somente os itens definidos.
  */
 export const uniq = <T>(args: T[]): T[] => {
-  return null;
+  const arrUniq = [];
+  for (let i = 0; args.length > i; i++) {
+    for (let j = 0; args.length > j; j++) {
+      if (args[j] === args[i]) {
+        let exists = false;
+        for (let k = 0; arrUniq.length > k; k++) {
+          if (args[i] === arrUniq[k]) {
+            exists = true;
+          }
+        }
+        if (!exists) {
+          arrUniq.push(args[i]);
+        }
+      }
+    }
+  }
+  return arrUniq;
 };
