@@ -11,5 +11,19 @@
  * @returns
  */
 export const chunk = (valores: number[], tamanho: number): number[][] => {
-  return null;
+  const resultado: number[][] = [];
+
+  for (const valor of valores) {
+    let chunkAtual: number[] = resultado[resultado.length - 1];
+    if (chunkAtual === undefined) {
+      chunkAtual = [];
+      resultado.push(chunkAtual);
+    }
+    if (chunkAtual.length < tamanho) {
+      chunkAtual.push(valor);
+    } else {
+      resultado.push([valor]);
+    }
+  }
+  return resultado;
 };
