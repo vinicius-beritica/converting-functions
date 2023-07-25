@@ -13,5 +13,6 @@
  * @returns
  */
 export const toPath = (path: string): string[] => {
-  return null;
+  const strSeparate = path.split(/[\.[\]]+/);
+  return strSeparate;
 };
