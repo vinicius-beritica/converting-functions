@@ -9,5 +9,15 @@ import { KeyAndValue } from '../types/keyAndValue';
  * @returns
  */
 export const fromPairs = (...args: KeyAndValue[]) => {
-  return {};
+  const obj = {};
+  for (let i = 0; args.length > i; i++) {
+    for (let j = 0; args[i].length > j; j++) {
+      const key = args[i][j].toString();
+      const value = args[i][j + 1];
+      if (!obj[key]) {
+        obj[key] = value;
+      }
+    }
+  }
+  return obj;
 };
