@@ -15,5 +15,18 @@ export const pick = <T extends Record>(
   record: T,
   ...args: (keyof T)[]
 ): Record => {
-  return null;
+  const assignObj = Object.assign({}, record);
+  const newObj = {};
+  const parameters = [...args];
+  for (let i = 0; parameters.length > i; i++) {
+    if (Object.keys(assignObj[parameters[i]])) {
+      Object.defineProperty(newObj, parameters[i].toString(), {
+        value: assignObj[parameters[i]],
+        writable: true,
+        configurable: true,
+        enumerable: true,
+      });
+    }
+  }
+  return newObj;
 };
