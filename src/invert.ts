@@ -10,5 +10,15 @@ import { Record } from '../types/record';
  * @returns
  */
 export const invert = (record: Record): Record => {
-  return null;
+  const objInvert = {};
+  const keysRecord = Object.keys(record); //a b c
+
+  for (let i = 0; keysRecord.length > i; i++) {
+    const valuesRecord = record; // { a: 1, b: 2, c: 1 }
+    const key = keysRecord[i]; // a
+    const value = valuesRecord[key]; // 1
+
+    objInvert[value] = key; // 1:a...
+  }
+  return objInvert;
 };
