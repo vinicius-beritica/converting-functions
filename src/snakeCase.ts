@@ -5,5 +5,8 @@
  * @returns o texto enviado por parâmetro, alterado para snakeCase.
  */
 export const snakeCase = (word: string): string => {
-  return null;
+  const strReplace: string = word.replace(/[\s* \- ]/g, '_');
+  const strSnakeCase: string =
+    strReplace.charAt(0).toLowerCase() + strReplace.slice(1);
+  return strSnakeCase;
 };
