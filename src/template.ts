@@ -20,5 +20,12 @@ import { Record } from '../types/record';
  * @returns
  */
 export const template = (templateString: string, matchers: Record): string => {
-  return null;
+  let strTemplate = templateString;
+  const keys = Object.keys(matchers);
+  for (let i = 0; keys.length > i; i++) {
+    strTemplate = strTemplate
+      .split(`{{${keys[i]}}}`)
+      .join(matchers[keys[i]].toString());
+  }
+  return strTemplate;
 };
