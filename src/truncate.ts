@@ -9,5 +9,13 @@
  * @param size
  */
 export const truncate = (text: string, size: number): string => {
-  return null;
+  if (text.length < size) {
+    return text;
+  } else if (text.length < 3) {
+    return '...';
+  } else {
+    const sizeTruncate = size - 3;
+    const newStr = text.substring(0, sizeTruncate).concat('...');
+    return newStr;
+  }
 };
