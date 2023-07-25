@@ -8,4 +8,10 @@
  * @param size
  * @param start
  */
-export const range = (size: number, start = 0) => {};
+export const range = (size: number, start = 0) => {
+  const rangeItems = [];
+  for (let i = 0; size > i; i++) {
+    rangeItems.push(i + start);
+  }
+  return rangeItems;
+};
