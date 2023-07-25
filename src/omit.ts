@@ -15,5 +15,12 @@ export const omit = <T extends Record>(
   record: T,
   ...args: (keyof T)[]
 ): Record => {
-  return null;
+  const assObj = Object.assign({}, record);
+  const param = [...args];
+  for (let i = 0; param.length > i; i++) {
+    if (Object.keys(assObj[param[i]])) {
+      delete assObj[param[i]];
+    }
+  }
+  return assObj;
 };
